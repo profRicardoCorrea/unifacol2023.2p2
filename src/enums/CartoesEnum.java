@@ -4,7 +4,8 @@ package enums;
 
 public enum CartoesEnum {
 	Amarelo("Amarelo"),
-	Vermelho("Vermelho");
+	Vermelho("Vermelho"),
+	Azul("Azul");
 	
 	private String descricao;
 
