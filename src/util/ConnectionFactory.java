@@ -10,7 +10,7 @@ public class ConnectionFactory  {
 		try {
 			
 		
-		String url = "jdbc:mysql://localhost:3306/futeboula_pratical_online"; //Nome da base de dados
+		String url = "jdbc:mysql://localhost:3306/futeboula_pratical_online?useTimezone=true&serverTimezone=UTC"; //Nome da base de dados
 		String user = "root"; //nome do usu�rio do MySQL
 		String password = "root"; //senha do MySQL
 

@@ -34,13 +34,13 @@ public class MainTime {
 			
 			Atleta tec =new  Atleta("","");
 			tec.setCodigo(0);
-			Time t= new Time("Sport Clube Recife", tec,DatetimeExtensions.toDate("20/03/2000"));	
+			Time t= new Time("Clube Nautico Capibaribe", tec,DatetimeExtensions.toDate("10/08/1995"));	
 			
 			
-			rpTime.salvar(t);
+			//rpTime.salvar(t);
 			imprimirTodos();
 			
-			/*Atleta tec1 =new  Atleta("João","01010");
+			/*Atleta tec1 =new  Atleta("Joï¿½o","01010");
 			tec.setCodigo(1);
 			Time t1= new Time("Bota Fogo", tec,DatetimeExtensions.toDate("11/23/2002"));
 			t1.setCodigo(3);

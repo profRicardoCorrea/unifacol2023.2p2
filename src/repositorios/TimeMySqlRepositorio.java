@@ -32,12 +32,12 @@ public class TimeMySqlRepositorio implements IBasicoRepositorio<Time>,ITimeRepos
 		try {			 
 			 
 			String sql_atleta = "INSERT INTO time"
-					+ "( nome,idAtleta,dataNascimento)"
-					+ "VALUES(?,?,?);";
+					+ "( nome,dataNascimento)"
+					+ "VALUES(?,?);";
 			PreparedStatement ps = conn.prepareStatement(sql_atleta, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, time.getNome());
-			ps.setInt(2, 0);			 
-			ps.setDate(3, new java.sql.Date(time.getDataNascimento().getTime()));
+					 
+			ps.setDate(2, new java.sql.Date(time.getDataNascimento().getTime()));
 			  
 
 			// Executa a instru��o
@@ -93,7 +93,7 @@ public class TimeMySqlRepositorio implements IBasicoRepositorio<Time>,ITimeRepos
 
 	@Override
 	public ArrayList<Time> listarTodos() throws SQLException {
-		String sql="SELECT idtime,nome,idAtleta, dataNascimento FROM time;";
+		String sql="SELECT idtime,nome, dataNascimento FROM time;";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		ResultSet rs = ps.executeQuery();
@@ -104,11 +104,11 @@ public class TimeMySqlRepositorio implements IBasicoRepositorio<Time>,ITimeRepos
 				Time e=new Time();
 				e.setCodigo(rs.getInt("idtime"));
 				e.setNome(rs.getString("nome"));			
-				e.setTecnico(new Atleta(rs.getInt("idAtleta")));		
+						
 				e.setDataNascimento(rs.getDate("dataNascimento"));
 				times.add(e);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+				System.out.println(e1);
 				 
 			}			 
 			 	 
