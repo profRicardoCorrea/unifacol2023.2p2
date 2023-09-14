@@ -23,6 +23,7 @@ public class TimeMySqlRepositorio implements IBasicoRepositorio<Time>,ITimeRepos
 			this.conn = ConnectionSingleton.getInstance().conexao;			 
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Error:\n"+e);
 		}
 		
 	}
