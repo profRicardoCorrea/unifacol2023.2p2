@@ -1,9 +1,17 @@
 package entidades;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
-
-public class Time extends EntidadeBasica {		
+@Entity
+@Table(name = "Time")
+public class Time extends EntidadeBasica   {		
+	/*@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;*/
 	
 	private String nome;
 	private Date dataNascimento;
@@ -53,7 +61,7 @@ public class Time extends EntidadeBasica {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	
+	 
 	
 
 }

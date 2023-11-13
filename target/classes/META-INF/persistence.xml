@@ -1,0 +1,36 @@
+ 
+ 
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+ 
+    <persistence-unit name="FutebolOnline"  transaction-type="RESOURCE_LOCAL">	 
+    
+    <class>entidades.Time</class>
+    <class>entidades.Atleta</class>
+    <class>entidades.Funcionario</class>
+    <class>entidades.Cartao</class>
+    <properties>
+        <!-- Configurações do banco de dados -->
+         <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/futebol?serverTimezone=UTC" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />			
+			<property name="connection.pool_size" value="1" />
+
+			<property name="javax.persistence.schema-generation.database.action" value="create" />			 
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" /> 
+			 
+			 
+			<!-- Compara a entidade com o que existe no banco de dados validate/update -->
+			<property name="javax.persistence.schema-generation.database.action" value="update"/>
+			</properties>
+</persistence-unit>
+</persistence>

@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 import entidades.Time;
 import interfaces.ITimeServico;
-import repositorios.BasicoRepositorio;
-import repositorios.TimeArrayListRepositorio;
+
+import repositorios.TimeRepositorio;
 
 
 public class TimeServico implements ITimeServico{
 
-	private TimeArrayListRepositorio repositorioTime= null;
+	private TimeRepositorio repositorioTime= null;
  
 	
-	public TimeServico(TimeArrayListRepositorio repositorioTime) {
+	public TimeServico(TimeRepositorio repositorioTime) {
 	 
 		this.repositorioTime =  repositorioTime;
 	}
@@ -31,7 +31,7 @@ public class TimeServico implements ITimeServico{
 				
 				 
 				//time.setCodigo(repositorioTime.gerarCodigo());
-				repositorioTime.salvar(time);
+				repositorioTime.adicionar(time);
 				
 			}
 			else {
@@ -73,7 +73,7 @@ public class TimeServico implements ITimeServico{
 				
 				 
 				try {
-					repositorioTime.alterar(time);
+					repositorioTime.atualizarTime(time);
 				} catch (Exception e) {
 					System.out.println("Erro ao alterar os dados do time");
 				}
@@ -103,9 +103,9 @@ public class TimeServico implements ITimeServico{
 	public void excluir(Time time) {
 		String foiremovido="Time N�o removido!";
 		if(time.getTecnico()==null) {
-			Time timeResult=repositorioTime.listarPorCodigo(time.getCodigo());
+			Time timeResult=repositorioTime.buscarPorId(time.getCodigo());
 			if(timeResult!=null)
-				repositorioTime.excluir(timeResult);				
+				repositorioTime.excluirTime(null);				
 				foiremovido="Time removido!";
 			}
 		 
@@ -113,17 +113,15 @@ public class TimeServico implements ITimeServico{
 		
 	}
 	
-	public void listarTodosTimes() {
+	public ArrayList<Time> listarTodosTimes() {
 		 
-		for (Time time : this.repositorioTime.listarTodos()) {
-			 System.out.println("Nome do Time:"+time.getNome());
-		}
+		return (ArrayList<Time>) this.repositorioTime.listarTimes();
 	}
 	 
 	public Time pesquisarPorCodigo(int codigoTime) {
 		
 		if(codigoTime>0)
-			return repositorioTime.listarPorCodigo(codigoTime);
+			return repositorioTime.buscarPorId((long)codigoTime);
 		 
 		System.out.println("C�digo Inv�lido");
 		return null;

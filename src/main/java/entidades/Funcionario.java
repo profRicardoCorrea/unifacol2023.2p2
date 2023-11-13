@@ -3,7 +3,20 @@ package entidades;
 import java.util.Date;
 
 import enums.TipoFuncionario;
+import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.Date;
 
+import enums.CartoesEnum;
+import enums.PosicaoAtletaEnum;
+ 
+@Entity
+@Table(name = "Funcionario")
 public class Funcionario extends Pessoa{
 	private int matricula;
 	private Date dataContratacao;
